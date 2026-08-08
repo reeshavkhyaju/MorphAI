@@ -1,0 +1,8 @@
+{
+    "identity_sim": 1.0,
+    "lpips": 0.0,
+    "psnr": 100.0,
+    "ssim": 1.0,
+    "nme": 0.0,
+    "mIoU": 1.0
+}

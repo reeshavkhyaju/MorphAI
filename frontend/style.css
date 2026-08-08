@@ -1,0 +1,228 @@
+/* ===== GLOBAL ===== */
+:root {
+  --primary: #2563EB;
+  --secondary: #0EA5E9;
+  --bg: #F8FAFC;
+  --card-bg: #ffffff;
+  --text: #1E293B;
+  --accent: #10B981;
+  --border-radius: 1.25rem;
+  --shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --text: #e2e8f0;
+  --shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .glass-nav {
+  background: rgba(30, 41, 59, 0.85) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+body.dark-mode .card {
+  background: var(--card-bg) !important;
+  color: var(--text);
+}
+
+body.dark-mode .bg-light {
+  background: #1e293b !important;
+}
+
+body.dark-mode .text-secondary {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .badge.bg-light {
+  background: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+body.dark-mode .drop-zone {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* ===== NAVBAR ===== */
+.glass-nav {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--text) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 2rem;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary) !important;
+}
+
+.nav-link.active {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--primary) !important;
+}
+
+/* ===== SECTIONS ===== */
+.fade-section {
+  animation: fadeUp 0.7s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+/* ===== DROP ZONE ===== */
+.drop-zone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 1.25rem;
+  padding: 2.5rem 1rem;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+.drop-zone:hover {
+  border-color: var(--primary);
+  background: rgba(37, 99, 235, 0.03);
+}
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  background: var(--primary);
+  border: none;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  transition: all 0.25s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+}
+
+.btn-outline-primary {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ===== BADGES / ACCENT ===== */
+.bg-primary-soft {
+  background: rgba(37, 99, 235, 0.12);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background: var(--accent);
+}
+
+/* ===== PROGRESS ===== */
+.progress {
+  height: 8px;
+  border-radius: 1rem;
+  background: #e2e8f0;
+}
+
+.progress-bar {
+  border-radius: 1rem;
+}
+
+/* ===== HERO ILLUSTRATION ===== */
+.hero-illustration {
+  position: relative;
+}
+
+.floating-badge {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== RIPPLE EFFECT ===== */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  width: 100px;
+  height: 100px;
+  transform: scale(0);
+  animation: rippleAnim 0.6s linear;
+}
+
+@keyframes rippleAnim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .display-4 { font-size: 2.5rem; }
+  .hero-illustration i { font-size: 4rem !important; }
+  .floating-badge { position: static; margin-top: 0.5rem; }
+  .navbar-nav .nav-link { padding: 0.4rem 0.8rem !important; }
+}
+
+@media (max-width: 576px) {
+  .display-4 { font-size: 2rem; }
+  .card { padding: 1.25rem !important; }
+}

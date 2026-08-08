@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------
+# MorphAI backend dependencies
+# Verified working on Python 3.10 / Windows 11.
+#
+#   python -m venv .venv
+#   .\.venv\Scripts\Activate.ps1
+#   pip install -r backend/requirements.txt
+#
+# CPU-only machines: install torch from the CPU index FIRST, otherwise
+# pip may pull a multi-GB CUDA build.
+#   pip install torch==2.13.0 torchvision==0.28.0 --index-url https://download.pytorch.org/whl/cpu
+#
+# The ArcFace identity metric is optional and lives in
+# requirements-arcface.txt (it needs --no-deps; see that file).
+# ---------------------------------------------------------------
+
+# --- Web layer ---
+flask==3.1.3
+flask-cors==6.0.5
+
+# --- Inference pipeline ---
+torch==2.13.0
+torchvision==0.28.0
+
+# LOAD-BEARING PINS - do not bump these without reading the note below.
+#
+#   mediapipe >= 0.10.30 deleted the legacy `mp.solutions` API that
+#   MorphAI/src/landmarks.py is built on. It must stay on 0.10.2x.
+#   mediapipe 0.10.21 in turn requires numpy < 2, and numpy < 2 rules out
+#   the opencv-python 5.x wheels (they require numpy >= 2).
+#
+# A blanket `pip install --upgrade` WILL break landmark extraction.
+mediapipe==0.10.21
+numpy==1.26.4
+opencv-python==4.11.0.86
+
+pillow==12.2.0
+
+# --- Metrics ---
+scikit-image==0.25.2
+
+# --- Used by the ArcFace weight download ---
+requests==2.34.2
+tqdm==4.70.0

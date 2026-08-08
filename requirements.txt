@@ -1,0 +1,11 @@
+torch
+torchvision
+mediapipe
+opencv-python
+numpy
+pillow
+pandas
+tqdm
+lpips
+facenet-pytorch
+scikit-image

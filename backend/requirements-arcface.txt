@@ -1,0 +1,22 @@
+# ---------------------------------------------------------------
+# Optional: ArcFace identity-similarity metric.
+#
+# The backend works without this - /api/predict simply reports
+# "identity": null and the dashboard shows "--" for that figure.
+#
+# MUST be installed with --no-deps:
+#
+#   pip install -r backend/requirements-arcface.txt --no-deps
+#
+# facenet-pytorch's metadata still pins torch<2.3 even though it runs
+# fine on current torch. Without --no-deps, pip silently downgrades
+# torch to 2.2.2 and pillow to 10.2.0.
+#
+# Its runtime deps (requests, tqdm, torchvision, numpy, pillow) are
+# already covered by requirements.txt.
+#
+# On first use it downloads ~107 MB of vggface2 weights into the torch
+# hub cache. Set MORPHAI_DISABLE_ARCFACE=1 to skip loading it entirely.
+# ---------------------------------------------------------------
+
+facenet-pytorch==2.6.0

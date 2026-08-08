@@ -1,0 +1,32 @@
+# Virtual Environments
+venv/
+
+# Python / PyTorch Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Large Datasets & Model Checkpoints
+data/
+checkpoints/
+*.pt
+*.pth
+*.bin
+*.onnx
+*.safetensors
+*.engine
+
+# Generated Outputs & Temporary Files
+custom_outputs/
+*.png
+*.jpg
+*.jpeg
+.gradio/
+
+# IDE & OS Specific
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

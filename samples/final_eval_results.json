@@ -1,0 +1,12 @@
+{
+    "n_samples": 2800,
+    "metrics": {
+        "psnr_full": 39.8733,
+        "ssim_full": 0.9947,
+        "mae_full": 0.001,
+        "mae_masked": 0.009,
+        "psnr_masked": 36.3098,
+        "lpips": 0.0032,
+        "identity_sim": 0.9886
+    }
+}
