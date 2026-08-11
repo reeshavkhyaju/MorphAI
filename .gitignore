@@ -19,9 +19,9 @@ data/
 
 # Generated Outputs & Temporary Files
 custom_outputs/
-*.png
-*.jpg
-*.jpeg
+# *.png
+# *.jpg
+# *.jpeg
 .gradio/
 
 # IDE & OS Specific
